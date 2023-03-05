@@ -3,6 +3,7 @@
   <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <!-- aos -->
@@ -199,7 +200,7 @@
           <div class="card-panel blue darken-2 center">
             <i class="material-icons">email</i>
             <h5>CONTACT</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis enim iste obcaecati.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe ut debitis dolore.</p>
           </div>
           <ul class="collection with-header">
             <li class="collection-header"><h4>OUR OFFICE</h4></li>
@@ -228,7 +229,7 @@
                 <textarea name="message" id="message" class="materialize-textarea"></textarea>
                 <label for="message">MESSAGE</label>
               </div>
-              <button type="submit" class="btn blue darken-2">SEND</button>
+              <button type="submit" class="btn blue darken-2 btn-send">SEND</button>
             </div>
           </form>
         </div>
@@ -280,7 +281,8 @@
   const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
-    e.preventDefault()
+    e.preventDefault();
+  form.reset()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
